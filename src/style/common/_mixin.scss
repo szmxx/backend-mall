@@ -3,7 +3,7 @@
     /* firefox */
 
     /* 轨道和滑块颜色 */
-    scrollbar-color: transparent transparent;
+    scrollbar-color: #fff transparent;
     scrollbar-width: thin;
     overscroll-behavior: none;
 
@@ -24,7 +24,7 @@
   }
 
   &::-webkit-scrollbar-track-piece {
-    background: transparent;
+    background: #fff;
   }
 
   &::-webkit-scrollbar {
@@ -33,6 +33,6 @@
 
   &::-webkit-scrollbar-thumb {
     border-radius: 20px;
-    background: transparent;
+    background: #fff;
   }
 }

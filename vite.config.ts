@@ -1,9 +1,3 @@
-/*
- * @Author: cola
- * @Date: 2023-07-15 16:03:37
- * @LastEditors: cola
- * @Description:
- */
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
@@ -16,8 +10,8 @@ import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig({
   assetsInclude: ['**/*.JPG'],
@@ -57,6 +51,7 @@ export default defineConfig({
           importStyle: 'sass',
         }),
         IconsResolver({
+          // 别名
           alias: {
             park: 'icon-park',
           },
@@ -65,7 +60,11 @@ export default defineConfig({
       ],
     }),
     AutoImport({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [
+        ElementPlusResolver({
+          importStyle: 'sass',
+        }),
+      ],
       imports: ['vue', 'vue-router', '@vueuse/core', 'pinia', 'vitest'],
       include: [/\.[tj]sx?$/, /\.vue$/, /\.vue\?vue/, /\.md$/],
       dirs: ['./src/composables'],
@@ -92,4 +91,13 @@ export default defineConfig({
     }),
     Inspect(),
   ],
+  optimizeDeps: {
+    include: [
+      `monaco-editor/esm/vs/language/json/json.worker`,
+      `monaco-editor/esm/vs/language/css/css.worker`,
+      `monaco-editor/esm/vs/language/html/html.worker`,
+      `monaco-editor/esm/vs/language/typescript/ts.worker`,
+      `monaco-editor/esm/vs/editor/editor.worker`,
+    ],
+  },
 })

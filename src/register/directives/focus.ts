@@ -4,7 +4,9 @@ export default {
       if (el.nodeName === 'INPUT') {
         el?.focus?.()
       } else {
-        el?.querySelector?.('input')?.focus?.()
+        setTimeout(() => {
+          el?.querySelector?.('input')?.focus?.()
+        })
       }
     }
   },

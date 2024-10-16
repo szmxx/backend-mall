@@ -4,16 +4,21 @@ import {
   createWebHistory,
   RouteLocationNormalized,
 } from 'vue-router'
-import HomePage from '@/views/home'
+import LoginPage from '@/views/login'
 import ErrorPage from '@/views/error'
 import routes from './routes'
 import { App } from 'vue'
 
 export const ConstantRoutes: RouteRecordRaw[] = [
   {
-    name: 'Home',
+    name: 'Main',
     path: '/',
-    component: HomePage,
+    redirect: '/home',
+  },
+  {
+    name: 'Login',
+    path: '/login',
+    component: LoginPage,
   },
   {
     path: '/404',

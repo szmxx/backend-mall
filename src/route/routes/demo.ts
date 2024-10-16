@@ -1,9 +1,3 @@
-/*
- * @Author: cola
- * @Date: 2023-09-12 00:49:03
- * @LastEditors: cola
- * @Description:
- */
 export default {
   name: 'Demo',
   path: '/demo',
@@ -12,7 +6,10 @@ export default {
     {
       name: 'DemoIndex',
       path: 'index',
-      component: () => import('@/views/demo/index.vue'),
+      component: () => import('@/views/demo'),
+      meta: {
+        title: '示例',
+      },
     },
   ],
 }

@@ -318,6 +318,12 @@
     "useLang": true,
     "currentLocale": true,
     "useLocale": true,
-    "useI18n": true
+    "useI18n": true,
+    "useChart": true,
+    "use": true,
+    "useMessage": true,
+    "useCo": true,
+    "useConfirm": true,
+    "useEChart": true
   }
 }

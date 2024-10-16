@@ -2,14 +2,19 @@ import {
   initAxiosInstance,
   initBusinessInstance,
   AxiosConfig,
-} from './api/index'
-import { getAppConfig, AppConfig } from './api/public'
+} from '@/api/index'
+import { getAppConfig, AppConfig } from '@/api/public'
 import useStore from '@/store/app'
-const envList = ['development', 'production']
-function getRestConfig(config: AppConfig): AppConfig {
+
+export const ENV_LIST = ['development', 'production']
+export const AUTH_ROUTE_WHITELIST = ['/login']
+export const REFRESH_API_WHITELIST = ['/api/auth/refreshToken']
+export const AUTH_API_WHITELIST = ['/user/login', '/api/auth/refreshToken']
+
+function getFullConfig(config: AppConfig): AppConfig {
   const res = Object.keys(config).reduce(
     (acc: Record<string, unknown>, cur: string) => {
-      if (!envList.includes(cur)) {
+      if (!ENV_LIST.includes(cur)) {
         acc[cur] = config[cur]
       }
       return acc
@@ -25,6 +30,6 @@ export default async () => {
   const envConfig = config[import.meta.env.MODE] as AxiosConfig
   initAxiosInstance(envConfig)
   initBusinessInstance(envConfig)
-  const restConfig = getRestConfig(config)
-  store.setConfig(restConfig)
+  const fullConfig = getFullConfig(config)
+  store.setConfig(fullConfig)
 }

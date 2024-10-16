@@ -7,7 +7,7 @@
 import { createI18n } from 'vue-i18n'
 const files = import.meta.glob('./lang/*/index.ts')
 import { IModule } from './types'
-
+import axios from 'axios'
 const currentLocale = localStorage.getItem('lang') || 'zh-CN'
 
 const i18n = createI18n({
@@ -22,10 +22,11 @@ const i18n = createI18n({
 setLocale(currentLocale, true)
 
 export async function setLocale(locale: string, bool?: boolean) {
+  console.log(i18n.global.availableLocales.includes(locale), locale, bool)
   if (!i18n.global.availableLocales.includes(locale) || bool)
     await loadAsyncLocale(locale)
   document.querySelector('html')?.setAttribute('lang', locale)
-  // axios.defaults.headers.common['Accept-Language'] = locale
+  axios.defaults.headers.common['Accept-Language'] = locale
   localStorage.setItem('lang', locale)
   i18n.global.locale.value = locale
 }

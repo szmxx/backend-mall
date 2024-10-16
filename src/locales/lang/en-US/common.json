@@ -1,4 +1,7 @@
 {
+  "username": "username",
+  "password": "password",
+  "home": "home",
   "chinese": "chinese",
   "english": "english"
 }

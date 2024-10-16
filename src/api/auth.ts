@@ -1,40 +1,21 @@
-import { GET, POST } from './index'
+import { POST } from './index'
+import { IUser } from './user'
 
-interface ILoginParams {
-  username: string
-  password: string
-}
-interface IAuthParams {
-  code: string | unknown
-}
-interface IRefreshParams {
-  token?: string
-  refreshToken: string
-}
-
-interface Auth {
+interface IAuth {
   token: string
   refreshToken: string
 }
 
-interface ILogin {
-  code: string
-}
-
-export function login(data: ILoginParams) {
-  return POST<ILogin>(`/auth/login`, '登录', data)
-}
-export function sso() {
-  return POST<Record<string, string>>(`/auth/sso`, '单点登录', {})
-}
-export function getUserInfo(params: ILoginParams) {
-  return GET<Auth>('/auth/userInfo', '获取用户信息', params)
-}
-
-export function refreshToken(data: IRefreshParams) {
+export function refreshToken(data: IAuth) {
   return POST<string>('/auth/refreshToken', '刷新 TOKEN', data)
 }
 
-export function auth(data: IAuthParams) {
-  return POST<Auth>('/auth/authenticate', '请求 REFRESH TOKEN', data)
+export function sso() {
+  return POST<IUser>('/auth/sso', '获取用户信息')
+}
+
+export function authorize(code: string) {
+  return POST<IAuth>('/auth', '获取用户鉴权', {
+    code: code,
+  })
 }

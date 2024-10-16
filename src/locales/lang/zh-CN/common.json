@@ -1,4 +1,7 @@
 {
+  "username": "用户名",
+  "password": "密码",
+  "home": "主页",
   "chinese": "中文",
-  "english": "英文"
+  "english": "英语"
 }

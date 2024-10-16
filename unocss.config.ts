@@ -1,9 +1,3 @@
-/*
- * @Author: cola
- * @Date: 2023-08-06 17:42:54
- * @LastEditors: cola
- * @Description:
- */
 import {
   defineConfig,
   presetAttributify,
@@ -25,7 +19,10 @@ const WHITELIST = [
   'black',
 ]
 export default defineConfig({
-  shortcuts: [['center', 'flex items-center justify-center']],
+  shortcuts: [
+    ['center', 'flex items-center justify-center'],
+    ['ellipsis', 'text-ellipsis overflow-hidden whitespace-nowrap'],
+  ],
   rules: [
     [
       /^bg-(.*)$/,
@@ -94,6 +91,7 @@ export default defineConfig({
         color: 'var(--fill-primary)',
         hover: 'var(--fill-hover)',
         dark: 'var(--fill-dark)',
+        darker: 'var(--fill-darker)',
       },
       border: {
         color: 'var(--border-primary)',
@@ -105,7 +103,6 @@ export default defineConfig({
         hint: 'var(--text-hint)',
         light: 'var(--text-light)',
       },
-
       white: 'var(--color-white)',
       black: 'var(--color-black)',
     },
@@ -119,8 +116,9 @@ export default defineConfig({
     fontSize: {
       xl: ['20px', '1.2em'],
       lg: ['18px', '1.2em'],
-      base: ['16px', '1.2em'],
-      sm: ['14px', '1.2em'],
+      medium: ['16px', '1.2em'],
+      base: ['14px', '1.2em'],
+      sm: ['13px', '1.2em'],
       xs: ['12px', '1.2em'],
     },
     borderRadius: {
@@ -156,4 +154,29 @@ export default defineConfig({
     }),
   ],
   transformers: [transformerDirectives(), transformerVariantGroup()],
+  safelist: [
+    'i-ion-home-sharp',
+    'i-ion-ios-speedometer',
+    'i-ion-ios-pricetags',
+    'i-ion-navicon-round',
+    'i-ion-md-add-circle',
+    'i-ion-ios-grid',
+    'i-ion-md-list-box',
+    'i-ion-document-text',
+    'i-ion-arrow-undo-circle',
+    'i-ion-logo-buffer',
+    'i-ion-bag',
+    'i-ion-md-list',
+    'i-ion-bookmarks',
+    'i-ion-ticket',
+    'i-ion-flame',
+    'i-ion-calendar',
+    'i-ion-ios-images',
+    'i-ion-locked',
+    'i-ion-ios-person',
+    'i-ion-ios-people',
+    'i-ion-grid',
+    'i-ion-extension-puzzle',
+    'i-ion-albums',
+  ],
 })

@@ -18,7 +18,8 @@
           "use",
           "include",
           "mixin",
-          "forward"
+          "forward",
+          "debug"
         ]
       }
     ],
@@ -107,7 +108,17 @@
     {
       "files": ["*.(html|vue)", "**/*.(html|vue)"],
       "rules": {
-        "unit-allowed-list": ["em", "rem", "px", "%", "s", "vw", "vh", "ms"]
+        "unit-allowed-list": [
+          "em",
+          "rem",
+          "px",
+          "%",
+          "s",
+          "vw",
+          "vh",
+          "ms",
+          "deg"
+        ]
       },
       "customSyntax": "postcss-html"
     }

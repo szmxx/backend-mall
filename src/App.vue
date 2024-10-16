@@ -11,10 +11,10 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 // 是否是自身路由
 const { locale } = useI18n()
 const current = shallowRef()
+
 watch(
   locale,
   (newVal) => {
-    console.log(newVal)
     switch (newVal) {
       case 'zh-CN':
         current.value = zhCn

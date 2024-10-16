@@ -1,7 +1,22 @@
 @forward 'element-plus/theme-chalk/src/dark/var.scss' with (
   $colors: (
     'primary': (
-      'base': rgb(255, 0, 0),
+      'base': rgb(255, 165, 0),
+    ),
+    'success': (
+      'base': rgb(170, 200, 167),
+    ),
+    'warning': (
+      'base': rgb(255, 214, 165),
+    ),
+    'danger': (
+      'base': rgb(255, 102, 102),
+    ),
+    'error': (
+      'base': rgb(255, 102, 102),
+    ),
+    'info': (
+      'base': rgb(180, 180, 180),
     ),
   ),
   $bg-color: (

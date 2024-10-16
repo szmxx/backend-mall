@@ -1,0 +1,16 @@
+/* stylelint-disable selector-class-pattern */
+.el-menu {
+  border-right: 0 !important;
+}
+
+.el-table th.el-table__cell {
+  background-color: rgb(var(--fill-primary)) !important;
+}
+
+.el-table,
+.el-pagination,
+.el-breadcrumb,
+.el-step__title {
+  font-size: inherit !important;
+  line-height: 1.2em;
+}

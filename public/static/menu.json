@@ -1,0 +1,242 @@
+[
+  {
+    "id": "1",
+    "title": "首页",
+    "name": "home",
+    "type": "route",
+    "icon": "i-ion-home-sharp",
+    "hidden": false,
+    "children": [
+      {
+        "id": "11",
+        "title": "仪表盘",
+        "name": "panel",
+        "icon": "i-ion-ios-speedometer",
+        "type": "route",
+        "hidden": false
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "商品管理",
+    "name": "product",
+    "icon": "i-ion-ios-pricetags",
+    "type": "route",
+    "hidden": false,
+    "children": [
+      {
+        "id": "21",
+        "title": "商品列表",
+        "name": "list",
+        "icon": "i-ion-navicon-round",
+        "type": "route",
+        "hidden": false
+      },
+      {
+        "id": "22",
+        "title": "商品类型",
+        "name": "type",
+        "icon": "i-ion-albums",
+        "type": "route",
+        "hidden": false
+      },
+      {
+        "id": "23",
+        "title": "添加商品",
+        "name": "add",
+        "icon": "i-ion-md-add-circle",
+        "type": "route",
+        "hidden": false
+      },
+      {
+        "id": "24",
+        "title": "商品分类",
+        "name": "catalog",
+        "icon": "i-ion-ios-grid",
+        "type": "route",
+        "hidden": false
+      },
+      {
+        "id": "25",
+        "title": "属性列表",
+        "name": "attribute",
+        "type": "route",
+        "hidden": true
+      },
+      {
+        "id": "26",
+        "title": "规格列表",
+        "name": "specification",
+        "type": "route",
+        "hidden": true
+      },
+      {
+        "id": "27",
+        "title": "编辑分类",
+        "name": "editcatalog",
+        "type": "route",
+        "hidden": true
+      },
+      {
+        "id": "28",
+        "title": "创建分类",
+        "name": "createcatalog",
+        "type": "route",
+        "hidden": true
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "订单管理",
+    "name": "order",
+    "icon": "i-ion-md-list-box",
+    "type": "route",
+    "hidden": false,
+    "children": [
+      {
+        "id": "31",
+        "title": "订单列表",
+        "name": "list",
+        "icon": "i-ion-document-text",
+        "type": "route",
+        "hidden": false
+      },
+      {
+        "id": "32",
+        "title": "退货申请",
+        "name": "return",
+        "icon": "i-ion-arrow-undo-circle",
+        "type": "route",
+        "hidden": false
+      },
+      {
+        "id": "33",
+        "title": "订单详情",
+        "name": "detail",
+        "icon": "detail",
+        "type": "route",
+        "hidden": true
+      },
+      {
+        "id": "34",
+        "title": "退货原因",
+        "name": "reason",
+        "icon": "i-ion-logo-buffer",
+        "type": "route",
+        "hidden": false
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "title": "店铺管理",
+    "name": "shop",
+    "icon": "i-ion-bag",
+    "type": "route",
+    "hidden": false,
+    "children": [
+      {
+        "id": "41",
+        "title": "店铺列表",
+        "name": "list",
+        "icon": "i-ion-md-list",
+        "type": "route",
+        "hidden": false
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "title": "营销管理",
+    "name": "market",
+    "icon": "i-ion-bookmarks",
+    "type": "route",
+    "hidden": false,
+    "children": [
+      {
+        "id": "51",
+        "title": "优惠券管理",
+        "name": "coupon",
+        "icon": "i-ion-ticket",
+        "type": "route",
+        "hidden": false
+      },
+      {
+        "id": "52",
+        "title": "热卖管理",
+        "name": "hot",
+        "icon": "i-ion-flame",
+        "type": "route",
+        "hidden": false
+      },
+      {
+        "id": "53",
+        "title": "新品管理",
+        "name": "new",
+        "icon": "i-ion-calendar",
+        "type": "route",
+        "hidden": false
+      },
+      {
+        "id": "54",
+        "title": "专题管理",
+        "name": "topic",
+        "icon": "i-ion-ios-images",
+        "type": "route",
+        "hidden": false
+      },
+      {
+        "id": "55",
+        "title": "广告管理",
+        "name": "advertise",
+        "icon": "i-ion-ios-images",
+        "type": "route",
+        "hidden": false
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "title": "权限管理",
+    "name": "permission",
+    "icon": "i-ion-locked",
+    "type": "route",
+    "hidden": false,
+    "children": [
+      {
+        "id": "61",
+        "title": "用户列表",
+        "name": "user",
+        "icon": "i-ion-ios-person",
+        "type": "route",
+        "hidden": false
+      },
+      {
+        "id": "62",
+        "title": "角色列表",
+        "name": "role",
+        "icon": "i-ion-ios-people",
+        "type": "route",
+        "hidden": false
+      },
+      {
+        "id": "63",
+        "title": "菜单管理",
+        "name": "menu",
+        "icon": "i-ion-grid",
+        "type": "route",
+        "hidden": false
+      },
+      {
+        "id": "64",
+        "title": "资源管理",
+        "name": "resource",
+        "icon": "i-ion-extension-puzzle",
+        "type": "route",
+        "hidden": false
+      }
+    ]
+  }
+]

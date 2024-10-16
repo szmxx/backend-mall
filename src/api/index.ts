@@ -2,18 +2,18 @@ import { getRefreshToken, getToken, setToken } from '@/utils/auth'
 import Http from '@/utils/Http'
 import { AxiosError, AxiosInstance } from 'axios'
 import { refreshToken } from './auth'
-const REFRESH_WHITELIST = ['/auth/refreshToken', '/auth/sso']
-const AUTH_WHITELIST = [
-  '/auth/login',
-  '/auth/refreshToken',
-  '/auth/authenticate',
-]
+import { AUTH_API_WHITELIST, REFRESH_API_WHITELIST } from '@/config'
+import { setGlobalOptions } from 'vue-request'
 
+setGlobalOptions({
+  manual: true,
+  loadingKeep: 1000,
+})
 const errorHandler = async (error: AxiosError, ctx?: AxiosInstance) => {
   // !permission auth fail, but it's not refresh token request
   if (
     error?.response?.status === 401 &&
-    !REFRESH_WHITELIST.includes(error?.config?.url as string)
+    !REFRESH_API_WHITELIST.includes(error?.config?.url as string)
   ) {
     const { config } = error
     try {
@@ -27,6 +27,7 @@ const errorHandler = async (error: AxiosError, ctx?: AxiosInstance) => {
       return ctx?.(config!)
     } catch (err) {
       const url = new URL(location.origin)
+      url.pathname = 'login'
       url.searchParams.append('redirect', location.href)
       location.href = url.toString()
     }
@@ -57,9 +58,9 @@ const instanceMap: InstanceMap = {
 export const initAxiosInstance = (config: AxiosConfig) => {
   if (!config) return
   const {
-    BASEURL: { host, port },
+    BASEURL: { host, port, path = '' },
   } = config
-  const BASEURL = `//${host || location.hostname}:${port}/`
+  const BASEURL = `//${host || location.hostname}:${port}/${path}`
   instanceMap.base = new Http({
     BASEURL: BASEURL,
     errorHandler,
@@ -69,7 +70,7 @@ export const initAxiosInstance = (config: AxiosConfig) => {
 export const initBusinessInstance = (config: AxiosConfig) => {
   if (!config) return
   const {
-    BASEURL: { host, port, path },
+    BASEURL: { host, port, path = '' },
   } = config
   const BASEURL = `//${host || location.hostname}:${port}/${path}`
   instanceMap.business = new Http({
@@ -79,7 +80,7 @@ export const initBusinessInstance = (config: AxiosConfig) => {
 }
 const authHeaders = (url: string, options: Record<string, unknown>) => {
   let headers = {}
-  if (!AUTH_WHITELIST.includes(url)) {
+  if (!AUTH_API_WHITELIST.includes(url)) {
     const token = getToken()
     headers = Object.assign(
       {

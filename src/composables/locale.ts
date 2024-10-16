@@ -1,9 +1,3 @@
-/*
- * @Author: cola
- * @Date: 2023-09-10 15:57:22
- * @LastEditors: cola
- * @Description:
- */
 import { setLocale } from '@/locales'
 import { useI18n as i18n } from 'vue-i18n'
 
