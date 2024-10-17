@@ -45,6 +45,14 @@
         <component
           v-bind="item"
           :is="item.component"
+          v-else-if="item['v-focus-next'] !== void 0"
+          v-model="data[item.prop]"
+          v-focus-next="item['v-focus-next']"
+          :class="componentClass"
+        ></component>
+        <component
+          v-bind="item"
+          :is="item.component"
           v-else
           v-model="data[item.prop]"
           :class="componentClass"
